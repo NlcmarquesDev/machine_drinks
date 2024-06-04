@@ -1,0 +1,16 @@
+{
+  "name": "nunomarques/drink_machine_app",
+  "description": "A little application for a automatish drink machine",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "NlcmarquesDev",
+      "email": "nunolcmarques@gmail.com"
+    }
+  ],
+  "require": {}
+}

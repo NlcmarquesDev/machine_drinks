@@ -15,6 +15,7 @@ $router = new Router();
 $router->get('/', '/index');
 $router->post('/getCoins', '/getcoins');
 $router->post('/selectDrink', '/showDrink');
+$router->post('/getDrink', '/getDrink');
 
 // dd($router);
 

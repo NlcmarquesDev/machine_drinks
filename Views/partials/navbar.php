@@ -11,9 +11,19 @@
             <div>
                 Welcome, <?= $_SESSION['admin'] ?>
             </div>
-            <a class="btn btn-outline-dark" href="/drink_machine_app/">Frontend</a>
-            <a class="btn btn-outline-dark" href="/drink_machine_app/login">Dashboard</a>
-            <a class="btn btn-outline-dark" href="/drink_machine_app/logout">Logout</a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Options
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="btn btn-sm btn-outline-dark dropdown-item " href="/drink_machine_app/">Frontend</a></li>
+                    <li><a class="btn btn-sm btn-outline-dark dropdown-item" href="/drink_machine_app/login">Dashboard</a></li>
+                    <li><a class="btn btn-sm btn-outline-dark dropdown-item" href="/drink_machine_app/logout">Logout</a></li>
+                </ul>
+
+
+
+            </div>
         <?php else : ?>
             <a class="btn btn-outline-dark" href="/drink_machine_app/login">Admin</a>
         <?php endif ?>

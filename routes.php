@@ -19,5 +19,13 @@ $router->get('/login', '/login/login');
 $router->get('/dashboard', '/backend/home');
 $router->post('/dashboard', '/login/auth');
 // dd($router);
+// $router->get('/orders', '/backend/show');
+$router->get('/logout', '/backend/logout');
+
+$router->get('/products', '/backend/products');
+
+$router->get('/product', '/backend/editProduct');
+$router->post('/product', '/backend/addProduct');
+
 
 $router->router($uri, $method);

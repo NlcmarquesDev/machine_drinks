@@ -6,14 +6,11 @@ include BASE_PATH . '/Views/partials/navbar.php';
     <div class="row">
         <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
             <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
-                </div>
+
                 <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/drink_machine_vdab/dashboard">
+                            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/drink_machine_app/dashboard">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                                     <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
                                 </svg>
@@ -55,52 +52,53 @@ include BASE_PATH . '/Views/partials/navbar.php';
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group me-2">
+                        <a href="/drink_machine_app/product" class="btn btn-sm btn-outline-secondary">+ Add product</a>
+                    </div>
                 </div>
             </div>
-            <div class="row my-3 gap-3">
-                <div class="col p-3 bg-primary rounded text-white d-flex flex-column justify-content-between">
-                    <h5>Products</h5>
-                    <p class="">34</p>
-                </div>
-                <div class="col p-3 bg-success rounded text-white d-flex flex-column justify-content-between">
-                    <h5>Orders</h5>
-                    <p class="">34</p>
-                </div>
-                <div class="col p-3 bg-danger rounded text-white d-flex flex-column justify-content-between">
-                    <h5>Money in Machine</h5>
-                    <p class="">4,00 &euro;</p>
-                </div>
-                <div class="col p-3 bg-warning rounded text-white d-flex flex-column justify-content-between">
-                    <h5>Items in the Machine </h5>
-                    <p class="">34/150</p>
-                </div>
-
-            </div>
-            <h2>Section title</h2>
-            <?php if (isset($SESSION['alert'])) : ?>
+            <?php if (isset($_SESSION['alert'])) : ?>
                 <div class="alert alert-success"><?= $_SESSION['alert'] ?></div>
             <?php endif; ?>
+            <h2>All Drinks</h2>
             <div class="table-responsive small">
                 <table class="table table-striped table-sm">
                     <thead>
                         <tr>
-                            <th scope="col">Order Id</th>
-                            <th scope="col">Drink</th>
-                            <th scope="col">Cost Drink</th>
-                            <th scope="col">total put in the Machine</th>
-                            <th scope="col">Exchange</th>
+                            <th scope="col">Drink Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Stock</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($orders as $order) : ?>
+                        <?php foreach ($products as $drink) : ?>
                             <tr>
-                                <td><?= $order['order_id'] ?></td>
-                                <td><?= $order['drink_name'] ?></td>
-                                <td><?= $order['price'] ?> &euro;</td>
-                                <td><?= $order['total'] ?>&euro;</td>
-                                <td><?= $order['change_return'] ?>&euro;</td>
-                                <td><span class="badge text-bg-<?= $order['stock_at_moment'] < 6 ? 'danger' : 'success' ?>"><?= $order['stock_at_moment'] ?></span></td>
+                                <td><?= $drink['id'] ?></td>
+                                <td><?= $drink['name'] ?></td>
+                                <td><?= $drink['size'] ?>ml</td>
+                                <td><?= $drink['price'] ?> &euro;</td>
+                                <td><span class="badge text-bg-<?= $drink['stock'] < 6 ? 'danger' : 'success' ?>"><?= $drink['stock'] ?></span></td>
+                                <td class="d-flex">
+                                    <a href="/drink_machine_app/product?id=<?= $drink['id'] ?>" class="pe-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                                        </svg>
+                                    </a>
+                                    <div>
+                                        <form action="/drink_machine_app/product?id=<?= $drink['id'] ?>" method="post">
+                                            <input type="hidden" name="_method" value="delete">
+                                            <button class="btn m-0 p-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3 text-danger" viewBox="0 0 16 16">
+                                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
                             </tr>
                         <?php endforeach ?>
 
@@ -110,7 +108,7 @@ include BASE_PATH . '/Views/partials/navbar.php';
         </main>
     </div>
 </div>
+<?php unset($_SESSION['alert']);
 
-<?php
 include BASE_PATH . '/Views/partials/footer.php';
 ?>

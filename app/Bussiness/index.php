@@ -2,7 +2,7 @@
 
 use App\Data\DrinksDAO;
 
-$drinks = (new DrinksDAO)->getAll();
+$drinks = (new DrinksDAO)->getAllDrinks();
 
 
 

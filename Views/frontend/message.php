@@ -25,7 +25,7 @@ include BASE_PATH . '/Views/frontend/partials/navbar.php';
         </div>
     </div>
     <div class="col-md-5">
-        <div class="h-100 p-5 bg-body-tertiary border rounded-3 d-flex flex-column justify-content-around">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3 d-flex flex-column justify-content-around align-items-center text-success ">
             <h1>Thank you!</h1>
 
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">

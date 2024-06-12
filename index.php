@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 session_start();
 const BASE_PATH = __DIR__;
-$_SESSION['coins'] = $_SESSION['coins'] ? $_SESSION['coins'] : 0;
+$_SESSION['coins'] = isset($_SESSION['coins']) ? $_SESSION['coins'] : 0;
 
 
 require_once 'vendor/autoload.php';

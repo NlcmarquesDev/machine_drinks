@@ -1,6 +1,6 @@
 <?php
-include BASE_PATH . '/Views/frontend/partials/header.php';
-include BASE_PATH . '/Views/frontend/partials/navbar.php';
+include BASE_PATH . '/Views/partials/header.php';
+include BASE_PATH . '/Views/partials/navbar.php';
 ?>
 
 <div class="row align-items-md-stretch">
@@ -52,5 +52,5 @@ include BASE_PATH . '/Views/frontend/partials/navbar.php';
     </form>
 </div>
 <?php
-include BASE_PATH . '/Views/frontend/partials/footer.php';
+include BASE_PATH . '/Views/partials/footer.php';
 ?>

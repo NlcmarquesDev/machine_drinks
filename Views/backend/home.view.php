@@ -81,29 +81,35 @@ include BASE_PATH . '/Views/partials/navbar.php';
                 <div class="alert alert-success"><?= $_SESSION['alert'] ?></div>
             <?php endif; ?>
             <div class="row my-3 gap-3">
-                <div class="col h-50 p-3 bg-primary rounded text-white d-flex flex-wrap gap-2 justify-content-center">
+                <div class="col h-50 p-3 border rounded shadow-lg text-center  ">
                     <h5>Total Coins in the Machine</h5>
-                    <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.05&euro; X <?= $_SESSION['coins_machine']['0.05'] ?></p>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center my-4">
+
+                        <div class="p-3 rounded bg-warning ">
+                            <p class="mt-2">0.05&euro; X <?= $_SESSION['coins_machine']['0.05'] ?></p>
+                        </div>
+                        <div class="p-3 rounded bg-warning">
+                            <p class="mt-2">0.10&euro; X <?= $_SESSION['coins_machine']['0.10'] ?></p>
+                        </div>
+                        <div class="p-3 rounded bg-warning">
+                            <p class="mt-2">0.20&euro; X <?= $_SESSION['coins_machine']['0.20'] ?></p>
+                        </div>
+                        <div class="p-3 rounded bg-warning">
+                            <p class="mt-2">0.50&euro; X <?= $_SESSION['coins_machine']['0.50'] ?></p>
+                        </div>
+                        <div class="p-3 rounded bg-warning">
+                            <p class="mt-2">1.00&euro; X <?= $_SESSION['coins_machine']['1.00'] ?></p>
+                        </div>
+                        <div class="p-3 rounded bg-warning">
+                            <p class="mt-2">2.00&euro; X <?= $_SESSION['coins_machine']['2.00'] ?></p>
+                        </div>
                     </div>
-                    <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.10&euro; X <?= $_SESSION['coins_machine']['0.10'] ?></p>
+                    <div>
+
+                        <button type="button" class="btn btn-outline-danger mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdropCoins">
+                            Collect Coins
+                        </button>
                     </div>
-                    <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.20&euro; X <?= $_SESSION['coins_machine']['0.20'] ?></p>
-                    </div>
-                    <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.50&euro; X <?= $_SESSION['coins_machine']['0.50'] ?></p>
-                    </div>
-                    <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">1.00&euro; X <?= $_SESSION['coins_machine']['1.00'] ?></p>
-                    </div>
-                    <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">2.00&euro; X <?= $_SESSION['coins_machine']['2.00'] ?></p>
-                    </div>
-                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdropCoins">
-                        Collect Coins
-                    </button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdropCoins" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelCoins" aria-hidden="true">
@@ -114,7 +120,7 @@ include BASE_PATH . '/Views/partials/navbar.php';
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body text-center text-dark">
-                                    <p>All the coins is gonna be collected!</p>
+                                    <p>The coins is gonna be collected! For change purposes we will leave 10 coins of each.</p>
                                     <br>
                                     <b>Are you sure?</b>
                                 </div>
@@ -130,7 +136,7 @@ include BASE_PATH . '/Views/partials/navbar.php';
                     </div>
                 </div>
                 <div class="col shadow-lg rounded p-3">
-                    <table class=" table  rounded text-white ">
+                    <table class=" table  rounded text-white fs-10 ">
                         <h5>Drinks Stock</h5>
                         <thead>
                             <tr>

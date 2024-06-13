@@ -11,7 +11,7 @@ class Authorize
     {
 
         if (!isset($_SESSION['admin']) && $_SESSION['admin'] != 'admin') {
-            header('location: ./index.php');
+            header('location: /drink_machine_app/');
             exit();
         }
     }

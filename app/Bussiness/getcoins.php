@@ -1,5 +1,6 @@
 <?php
 
+use App\Data\DrinksDAO;
 
 if (isset($_POST['coin'])) {
     $_SESSION['coins'] += $_POST['coin'];
@@ -26,7 +27,6 @@ if (isset($_POST['coin'])) {
 }
 
 
-use App\Data\DrinksDAO;
 
 $drinks = (new DrinksDAO)->getAllDrinks();
 

@@ -12,18 +12,29 @@ include BASE_PATH . '/Views/partials/navbar.php';
             <div class="p-5 mt-4 bg-body-tertiary rounded-3">
                 <form action="/drink_machine_app/" method="POST">
                     <div class=" d-flex justify-content-between gap-5">
-                        <div class="d-flex ">
-                            <h1>Your Drink is comming out!</h1>
-                        </div>
-                        <div class="col-md-3 my-auto">
-                            <input type="hidden" name="return" value=true>
-                            <a href="/drink_machine_app/" class="btn btn-lg btn-warning">Return </a>
-                        </div>
+                        <?php if (empty($erros)) : ?>
+                            <div class="d-flex ">
+                                <h1>Your Drink is comming out!</h1>
+                            </div>
+                            <div class="col-md-3 my-auto">
+                                <input type="hidden" name="return" value=true>
+                                <a href="/drink_machine_app/" class="btn btn-lg btn-warning">Return </a>
+                            </div>
+                        <?php else : ?>
+                            <div class="d-flex ">
+                                <h1><?= $errors['error'] ?></h1>
+                            </div>
+                            <div class="col-md-3 my-auto">
+                                <input type="hidden" name="return" value=true>
+                                <a href="/drink_machine_app/" class="btn btn-lg btn-warning">Return </a>
+                            </div>
+                        <?php endif ?>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
     <div class="col-md-5">
         <div class="h-100 p-5 bg-body-tertiary border rounded-3 d-flex flex-column justify-content-around align-items-center text-success ">
             <h1>Thank you!</h1>

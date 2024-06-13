@@ -30,6 +30,13 @@ Separation of concerns with Model, View, and Controller layers.
 
 Data persistence for orders and beverages.
 
+## Images
+
+![drink_app](https://github.com/NlcmarquesDev/machine_drinks/assets/111293493/fc136b00-89c8-4e6f-8fbc-2926bd370625)
+
+![dashboard](https://github.com/NlcmarquesDev/machine_drinks/assets/111293493/73acae36-1090-41ab-9ff9-3f2fbf3cb551)
+![orders](https://github.com/NlcmarquesDev/machine_drinks/assets/111293493/9d7e2085-b194-46bf-878b-c9fe22b4696f)
+
 ## Technologies
 
 - Frontend: HTML, CSS, JavaScript

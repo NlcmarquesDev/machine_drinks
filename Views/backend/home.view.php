@@ -84,24 +84,50 @@ include BASE_PATH . '/Views/partials/navbar.php';
                 <div class="col h-50 p-3 bg-primary rounded text-white d-flex flex-wrap gap-2 justify-content-center">
                     <h5>Total Coins in the Machine</h5>
                     <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.05&euro; X 34</p>
+                        <p class="mt-2">0.05&euro; X <?= $_SESSION['coins_machine']['0.05'] ?></p>
                     </div>
                     <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.10&euro; X 34</p>
+                        <p class="mt-2">0.10&euro; X <?= $_SESSION['coins_machine']['0.10'] ?></p>
                     </div>
                     <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.20&euro; X 34</p>
+                        <p class="mt-2">0.20&euro; X <?= $_SESSION['coins_machine']['0.20'] ?></p>
                     </div>
                     <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">0.50&euro; X 34</p>
+                        <p class="mt-2">0.50&euro; X <?= $_SESSION['coins_machine']['0.50'] ?></p>
                     </div>
                     <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">1.00&euro; X 34</p>
+                        <p class="mt-2">1.00&euro; X <?= $_SESSION['coins_machine']['1.00'] ?></p>
                     </div>
                     <div class="p-3 rounded bg-warning">
-                        <p class="mt-2">2.00&euro; X 34</p>
+                        <p class="mt-2">2.00&euro; X <?= $_SESSION['coins_machine']['2.00'] ?></p>
                     </div>
-                    <button class="btn btn-danger mt-3">Recolher moedas</button>
+                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdropCoins">
+                        Collect Coins
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdropCoins" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelCoins" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 text-dark" id="staticBackdropLabelCoins">Collet Coins</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center text-dark">
+                                    <p>All the coins is gonna be collected!</p>
+                                    <br>
+                                    <b>Are you sure?</b>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                    <form action="/drink_machine_app/restore" method="POST">
+                                        <input type="hidden" name="collect">
+                                        <button type="submit" class="btn btn-primary">Yes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col shadow-lg rounded p-3">
                     <table class=" table  rounded text-white ">
@@ -121,6 +147,7 @@ include BASE_PATH . '/Views/partials/navbar.php';
                             <?php endforeach ?>
                         </tbody>
                     </table>
+
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         Repor Stock
                     </button>
@@ -140,7 +167,8 @@ include BASE_PATH . '/Views/partials/navbar.php';
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                    <form action="/drink_machine_app/restore-stock" method="POST">
+                                    <form action="/drink_machine_app/restore" method="POST">
+                                        <input type="hidden" name="stock">
                                         <button type="submit" class="btn btn-primary">Yes</button>
                                     </form>
                                 </div>

@@ -34,6 +34,7 @@ include BASE_PATH . '/Views/partials/navbar.php';
             <h1><?= $_SESSION['coins'] ?>&euro;</h1>
             <form method="post" action="/drink_machine_app/getCoins">
                 <div class="d-flex flex-wrap gap-2">
+                    <button type="submit" name="coin" value="0.05" class="btn btn-primary">0.05&euro;</button>
                     <button type="submit" name="coin" value="0.10" class="btn btn-primary">0.10&euro;</button>
                     <button type="submit" name="coin" value="0.20" class="btn btn-primary">0.20&euro;</button>
                     <button type="submit" name="coin" value="0.50" class="btn btn-primary">0.50&euro;</button>

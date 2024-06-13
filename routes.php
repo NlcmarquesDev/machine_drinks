@@ -30,7 +30,7 @@ $router->post('/delete', '/backend/deleteProduct');
 $router->post('/product', '/backend/addProduct');
 
 
-$router->post('/restore-stock', '/backend/restoreProduct');
+$router->post('/restore', '/backend/restore');
 
 
 $router->router($uri, $method);

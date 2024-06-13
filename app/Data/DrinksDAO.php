@@ -58,4 +58,9 @@ class DrinksDAO
     {
         return $this->db->query("SELECT SUM(stock) as total_stock FROM drinks")->find();
     }
+
+    public function getDrinkAndStock()
+    {
+        return $this->db->query("SELECT name, stock FROM drinks")->findAll();
+    }
 }

@@ -81,25 +81,47 @@ include BASE_PATH . '/Views/partials/navbar.php';
                 <div class="alert alert-success"><?= $_SESSION['alert'] ?></div>
             <?php endif; ?>
             <div class="row my-3 gap-3">
-                <div class="col p-3 bg-primary rounded text-white d-flex flex-column justify-content-between">
+                <div class="col h-50 p-3 bg-primary rounded text-white d-flex flex-wrap gap-2 justify-content-center">
                     <h5>Total Coins in the Machine</h5>
-                    <p class="mt-2">0.10&euro; X 34</p>
-                    <p class="">0.20&euro; X 34</p>
-                    <p class="">0.50&euro; X 34</p>
-                    <p class="">1.00&euro; X 34</p>
-                    <p class="">2.00&euro; X 34</p>
-                    <button>Recolher moedas</button>
+                    <div class="p-3 rounded bg-warning">
+                        <p class="mt-2">0.05&euro; X 34</p>
+                    </div>
+                    <div class="p-3 rounded bg-warning">
+                        <p class="mt-2">0.10&euro; X 34</p>
+                    </div>
+                    <div class="p-3 rounded bg-warning">
+                        <p class="mt-2">0.20&euro; X 34</p>
+                    </div>
+                    <div class="p-3 rounded bg-warning">
+                        <p class="mt-2">0.50&euro; X 34</p>
+                    </div>
+                    <div class="p-3 rounded bg-warning">
+                        <p class="mt-2">1.00&euro; X 34</p>
+                    </div>
+                    <div class="p-3 rounded bg-warning">
+                        <p class="mt-2">2.00&euro; X 34</p>
+                    </div>
+                    <button class="btn btn-danger mt-3">Recolher moedas</button>
                 </div>
-                <div class="col p-3 bg-success rounded text-white d-flex flex-column justify-content-between">
-                    <h5>Drinks Stock</h5>
-                    <p class="mt-2"> DrinkName = 34</p>
-                    <p class=""> DrinkName = 34</p>
-                    <p class=""> DrinkName = 34</p>
-                    <p class=""> DrinkName = 34</p>
-                    <p class=""> DrinkName = 34</p>
-                    <p class=""> DrinkName = 34</p>
-                    <p class=""> DrinkName = 34</p>
-                    <button>Repor Stock</button>
+                <div class="col shadow-lg rounded p-3">
+                    <table class=" table  rounded text-white ">
+                        <h5>Drinks Stock</h5>
+                        <thead>
+                            <tr>
+                                <td>Drinks</td>
+                                <td>Stock</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($resumeCardDrinks as $drinks) : ?>
+                                <tr>
+                                    <td class=""> <?= $drinks['name'] ?></td>
+                                    <td class=""> <?= $drinks['stock'] ?></td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-danger">Repor Stock</button>
                 </div>
             </div>
         </main>

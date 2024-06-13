@@ -21,10 +21,12 @@ $router->post('/dashboard', '/login/auth');
 // dd($router);
 // $router->get('/orders', '/backend/show');
 $router->get('/logout', '/backend/logout');
+$router->get('/orders', '/backend/orders');
 
 $router->get('/products', '/backend/products');
 
 $router->get('/product', '/backend/editProduct');
+$router->post('/delete', '/backend/deleteProduct');
 $router->post('/product', '/backend/addProduct');
 
 

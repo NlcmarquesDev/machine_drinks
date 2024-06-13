@@ -49,4 +49,13 @@ class DrinksDAO
     {
         $this->db->query("DELETE FROM drinks WHERE id=:id", [':id' => $id]);
     }
+
+    public function totalNumberDrinks()
+    {
+        return $this->db->query("SELECT COUNT(*) as total FROM drinks")->find();
+    }
+    public function totalItemsStock()
+    {
+        return $this->db->query("SELECT SUM(stock) as total_stock FROM drinks")->find();
+    }
 }

@@ -25,4 +25,8 @@ class OrdersDAO
             ':stock_at_moment' => $orderData['stock']
         ]);
     }
+    public function countOrders()
+    {
+        return $this->db->query("SELECT COUNT(*) as total FROM orders")->find();
+    }
 }

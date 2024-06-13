@@ -63,4 +63,8 @@ class DrinksDAO
     {
         return $this->db->query("SELECT name, stock FROM drinks")->findAll();
     }
+    public function restoreStock(int $value)
+    {
+        $this->db->query("UPDATE drinks SET stock = {$value}");
+    }
 }

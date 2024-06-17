@@ -1,0 +1,1 @@
+{"version":1,"defects":{"getPriceTest::testGetPriceExemple":8,"Tests\\getPriceTest::testGetPriceExemple":7,"Tests\\getPriceTest::testPriceMustBeFloat":8},"times":{"getPriceTest::testGetPriceExemple":0.007,"Tests\\getPriceTest::testGetPriceExemple":0.003,"Tests\\getPriceTest::testPriceMustBeFloat":0.003}}

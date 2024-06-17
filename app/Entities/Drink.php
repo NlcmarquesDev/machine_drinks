@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Bussiness;
+namespace App\Entities;
 
 class Drink
 {
